@@ -2,6 +2,7 @@
 
 import { db } from "@/db";
 import { tracks } from "@/db/schema";
+import { slugify } from "@/lib/slugify";
 import { revalidatePath } from "next/cache";
 
 export async function createTrack(formData: FormData) {
@@ -11,6 +12,8 @@ export async function createTrack(formData: FormData) {
     throw new Error("");
   }
 
-  await db.insert(tracks).values({ name: formTrackName, slug: formTrackName });
+  await db
+    .insert(tracks)
+    .values({ name: formTrackName, slug: slugify(formTrackName) });
   revalidatePath("/tracks");
 }

@@ -1,5 +1,6 @@
 import { getTracks } from "@/db/queries/tracks";
 import { createTrack } from "../actions";
+import { Input } from "@/components/ui/input";
 
 // Create a createTrack Server Action that accepts FormData, inserts one row into tracks, and revalidates /tracks.
 
@@ -7,7 +8,7 @@ export default async function TracksPage() {
   const tracks = await getTracks();
 
   return (
-    <main className="mx-auto max-w-3xl p-6">
+    <main className="mx-auto max-w-3xl p-6 bg-stone-900 text-stone-100">
       <h1 className="text-2xl font-semibold">Learning Tracks</h1>
 
       <ul className="mt-6 space-y-3">
@@ -26,7 +27,7 @@ export default async function TracksPage() {
       <div>
         <div>Add Track</div>
         <form action={createTrack}>
-          <input type="text" name="name" required />
+          <Input type="text" name="name" required />
           <input type="text" name="description" />
           <button type="submit">Create</button>
         </form>
