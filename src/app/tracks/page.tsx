@@ -1,28 +1,28 @@
-// import { getTracks } from "@/db/queries/tracks";
+import { getTracks } from "@/db/queries/tracks";
 // import { createTrack } from "../actions";
 import { Input } from "@/components/ui/input";
 
 // Create a createTrack Server Action that accepts FormData, inserts one row into tracks, and revalidates /tracks.
 
 export default async function TracksPage() {
-  // const tracks = await getTracks();
+  const tracks = await getTracks();
 
   return (
     <main className="mx-auto max-w-3xl p-6 bg-stone-900 text-stone-100">
       <h1 className="text-2xl font-semibold">Learning Tracks</h1>
 
       <ul className="mt-6 space-y-3">
-        {/* {tracks && */}
-        {/*   tracks.map((track) => ( */}
-        {/*     <li key={track.id} className="rounded-lg border p-4"> */}
-        {/*       <h2 className="font-medium">{track.name}</h2> */}
-        {/*       {track.description ? ( */}
-        {/*         <p className="mt-1 text-sm text-muted-foreground"> */}
-        {/*           {track.description} */}
-        {/*         </p> */}
-        {/*       ) : null} */}
-        {/*     </li> */}
-        {/*   ))} */}
+        {tracks &&
+          tracks.map((track) => (
+            <li key={track.id} className="rounded-lg border p-4">
+              <h2 className="font-medium">{track.name}</h2>
+              {track.description ? (
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {track.description}
+                </p>
+              ) : null}
+            </li>
+          ))}
       </ul>
 
       <div>

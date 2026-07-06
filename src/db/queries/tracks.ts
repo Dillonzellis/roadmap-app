@@ -1,7 +1,7 @@
-// import { asc } from "drizzle-orm";
-// import { tracks } from "@/db/schema";
-// import { db } from "@/db";
-//
-// export async function getTracks() {
-//   return db.select().from(tracks).orderBy(asc(tracks.name));
-// }
+import { asc } from "drizzle-orm";
+import { db } from "@/db";
+import { tracksTable } from "../schema";
+
+export async function getTracks() {
+  return db.select().from(tracksTable).orderBy(asc(tracksTable.name));
+}
