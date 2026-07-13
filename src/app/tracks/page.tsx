@@ -2,7 +2,7 @@ import { getTracks } from "@/db/queries/tracks";
 // import { createTrack } from "../actions";
 import { Input } from "@/components/ui/input";
 
-// Create a createTrack Server Action that accepts FormData, inserts one row into tracks, and revalidates /tracks.
+// Add a topics table and create a seed script that inserts your initial tracks and topics.
 
 export default async function TracksPage() {
   const tracks = await getTracks();
