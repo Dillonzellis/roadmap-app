@@ -24,8 +24,6 @@ async function main() {
     //   Mock interviews and communication
   ];
 
-  const topics:
-
   await db.insert(tracksTable).values(tracks);
 }
 
